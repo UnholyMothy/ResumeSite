@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scylla Melander | IT Support Specialist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#2c2c2c] text-white font-sans leading-relaxed">
+    <div id="app" class="max-w-4xl mx-auto px-6 py-10" v-cloak>
+        <!-- Header -->
+        <header class="mb-12">
+            <h1 class="text-4xl font-bold text-purple-400">{{ name }}</h1>
+            <p class="text-lg mt-2 text-gray-300">{{ title }}</p>
+            <div class="mt-4 text-gray-400">
+                <p>{{ location }}</p>
+                <p><a :href="'mailto:' + email" class="underline">{{ email }}</a></p>
+                <p>{{ phone }}</p>
+            </div>
+        </header>
+
+        <!-- About -->
+        <section class="mb-10">
+            <h2 class="text-2xl font-semibold text-purple-300 mb-2">About Me</h2>
+            <p class="text-gray-300">{{ about }}</p>
+        </section>
+
+        <!-- Skills -->
+        <section class="mb-10">
+            <h2 class="text-2xl font-semibold text-purple-300 mb-2">Skills</h2>
+            <ul class="grid grid-cols-2 gap-1 text-gray-300 list-disc pl-5">
+                <li v-for="skill in skills" :key="skill">{{ skill }}</li>
+            </ul>
+        </section>
+        <!-- Experience -->
+        <section class="mb-10">
+            <h2 class="text-2xl font-semibold text-purple-300 mb-2">Experience</h2>
+            <ul class="grid grid-cols-1 gap-1 text-gray-300 list-disc pl-5">
+                <li v-for="experience in experience" :key="experience">{{ experience }}</li>
+            </ul>
+        </section>
+        <!-- Homelab -->
+        <section class="mb-10">
+            <h2 class="text-2xl font-semibold text-purple-300 mb-2">Homelab</h2>
+            <ul class="grid grid-cols-2 gap-1 text-gray-300 list-disc pl-5">
+                <li v-for="extra in extra" :key="extra">{{ extra }}</li>
+            </ul>
+
+        </section>
+        <!-- Education -->
+        <section class="mb-10">
+            <h2 class="text-2xl font-semibold text-purple-300 mb-2">Education</h2>
+            <ul class="grid grid-cols-1 gap-1 text-gray-300 list-disc pl-5">
+                <li v-for="education in education" :key="education">{{ education }}</li>
+            </ul>
+        </section>
+        <!-- Certification -->
+        <section class="mb-10">
+            <h2 class="text-2xl font-semibold text-purple-300 mb-2">Certifications</h2>
+            <ul class="grid grid-cols-1 gap-1 text-gray-300 list-disc pl-5">
+                <li v-for="cert in cert" :key="cert">{{ cert }}</li>
+            </ul>
+        </section>
+
+        <!-- Contact -->
+        <footer class="mt-10 border-t border-gray-700 pt-6 text-center text-sm text-gray-400">
+            <p>Built by {{ name }}</p>
+            <p>Last updated: {{ lastUpdated }}</p>
+        </footer>
+    </div>
+
+    <!-- Vue CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const { createApp } = Vue;
+
+        createApp({
+            data() {
+                return {
+                    name: "Scylla Melander",
+                    title: "Aspiring IT Professional - Support Specialist - Homelab SysAdmin",
+                    email: "scylla@scyllamelander.com",
+                    phone: "(559) 243-6986",
+                    location: "Lacey, WA",
+                    lastUpdated: "May 2025",
+                    about: "Aspiring IT professional with a strong passion for security, networks, and server management. Self-taught in a variety of technologies through hands-on projects and continuous learning. Eager to apply my knowledge in real-world environments and grow within the IT field. I am known for my curiosity, problem-solving skills, and swift learning",
+                    skills: [
+                        "C++, Python, Rust",
+                        "SQL (MySQL, PostgreSQL)",
+                        "Linux, Docker, Proxmox",
+                        "Grafana, Prometheus",
+                        "Helix Core, Git (GitHub, GitLab)",
+                        "Zammad, Cloudflared",
+                        "Virtualization, DNS, containerd"
+                    ],
+                    experience: [
+                        "Starbucks - Trainer (2022 - 2025)",
+                        "Alorica - Support Specialist (2014 - 2016)",
+                        "Neighborhood Thrift - Device Specialist (2012 - 2014)",
+                        "ZorkTech - Field Repair Tech (2010 - 2012)"
+                    ],
+                    extra: [
+                        "RAID6 NAS, shared via NFS Share",
+                        "Helix Core Perforce Depot",
+                        "Several Linux VMs for sandboxing and testing",
+                        "Docker containers for cloudflared and Grafana",
+                        "Game Servers",
+                        "Zammad for issue tracking",
+                        "Gitlab for project management, including CI/CD",
+                        "SQL databases (MySQL, PostgreSQL) for data management",
+                        "Grafana dashboards for monitoring and visualization, using Prometheus"
+
+                    ],
+                    education: [
+                        "Full Sail University - Game Design",
+                        "Fresno City College - Computer Information Systems"
+                    ],
+                    cert: [
+                        "SQL (Intro to SQL) - April 2025 - Simplilearn - ID: 8281401"   
+                    ],
+                };
+            }
+        }).mount("#app");
+    </script>
+</body>
+</html>
